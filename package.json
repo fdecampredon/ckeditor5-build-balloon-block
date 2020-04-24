@@ -95,5 +95,11 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-alignment": "^18.0.0",
+    "@ckeditor/ckeditor5-font": "^18.0.0",
+    "@ckeditor/ckeditor5-horizontal-line": "^18.0.0",
+    "uuid": "^7.0.3"
   }
 }

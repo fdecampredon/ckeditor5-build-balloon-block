@@ -18,9 +18,9 @@ import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
-import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
@@ -30,8 +30,13 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
+import Horizontalline from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
 
 import '../theme/theme.css';
+import InsertImagePlugin from './ImgPlugin';
 
 export default class BalloonEditor extends BalloonEditorBase {}
 
@@ -47,11 +52,12 @@ BalloonEditor.builtinPlugins = [
 	CKFinder,
 	EasyImage,
 	Heading,
+	InsertImagePlugin,
 	Image,
 	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
-	ImageUpload,
+	ImageResize,
 	Indent,
 	Link,
 	List,
@@ -60,7 +66,11 @@ BalloonEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	Alignment,
+	FontColor,
+	FontBackgroundColor,
+	Horizontalline
 ];
 
 // Editor configuration.
@@ -68,13 +78,15 @@ BalloonEditor.defaultConfig = {
 	blockToolbar: [
 		'heading',
 		'|',
+		'alignment',
 		'bulletedList',
 		'numberedList',
 		'|',
 		'indent',
 		'outdent',
 		'|',
-		'imageUpload',
+		'insertImage',
+		'horizontalLine',
 		'blockQuote',
 		'insertTable',
 		'mediaEmbed',
@@ -84,16 +96,27 @@ BalloonEditor.defaultConfig = {
 	],
 	toolbar: {
 		items: [
+			'heading',
+			'|',
 			'bold',
 			'italic',
-			'link'
+			'link',
+			'|',
+			'fontColor',
+			'fontBackgroundColor',
+			'|',
+			'alignment',
+			'bulletedList',
+			'numberedList',
+			'|',
+			'indent',
+			'outdent',
+			'|',
+			'blockQuote'
 		]
 	},
 	image: {
 		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
-			'|',
 			'imageTextAlternative'
 		]
 	},
